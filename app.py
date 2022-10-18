@@ -50,6 +50,11 @@ with tab3:
     st.header("How I Am ?")
     st.text('My Name is Abdelhamid Adel, Data scientist')
     st.text('I am From Cairo, Egypt')
-    if st.button(" MY GitHub"):
-        import webbrowser
-        webbrowser.open('https://github.com/AbdelhamidADel', new=2)
+    st.write(f'''
+    <a target="_blank" href="https://github.com/AbdelhamidADel">
+        <button>
+            My GitHub
+        </button>
+    </a>
+    ''',
+    unsafe_allow_html=True)
