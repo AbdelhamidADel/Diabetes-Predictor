@@ -27,7 +27,7 @@ with tab1:
 with tab2:
     st.header("Prediction")
     st.text('1- Make sure that the entries are written correctly')
-    st.text('2- Press Predict')
+    st.text('2- press enter after fill all required fields')
     st.write("-----------------------------------------")
     try:
         Age=st.slider('Age', 1, 100)
@@ -37,19 +37,14 @@ with tab2:
         bmi=st.text_input('BMI')
         with open('diabetes.pkl', 'rb') as f:
             model_RF = pickle.load(f)
-
-    
-
-        time.sleep(1.1)
         results=model_RF.predict([[Pregnancies, Glucose, Insulin, bmi, Age]])
-    except :
-        st.write('Check From Your Inputs')
- 
-    if st.button("Predict"):
         if results[0] == 0 :
             st.success("You are Healthy")
         else:
             st.error('You have diabetes, you should see a doctor.')
+    except :
+        st.error('Check From Your Inputs')
+        
 # ----------------------------------------------------------------------------
 with tab3:
     st.header("How I Am ?")
